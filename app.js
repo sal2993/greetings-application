@@ -2,12 +2,20 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+
 var logger = require('morgan');
+
+// Authentication Configuration
+//var passport = require('passport');
+//var LocalStrategy = require('passport-local').Strategy;
+
 
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/signup');
 var greetingsRouter = require('./routes/greetings');
+
+// require('./config/passport');
 
 var app = express();
 
