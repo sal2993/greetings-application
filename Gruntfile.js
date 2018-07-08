@@ -28,12 +28,20 @@ module.exports = function (grunt) {
         options: {
           jshintrc: '.jshintrc',
         }
+      },
+      tests: {
+        src: ['./*.test.js'],
+        options: '.jshintrc.test'
       }
     },
     watch: {
       js: {
         files: ['server/**/*.js'],
         tasks: ['jshint:server', 'run:commands']
+      },
+      testjs: {
+        files: ['./**/*.test.js'],
+        tasks: ['jshint:tests']
       },
       rebuild: {
         files: ['Gruntfile.js'],
@@ -50,15 +58,15 @@ module.exports = function (grunt) {
     },
     nodemon: {
       dev: {
-        script: 'bin/www',
+        script: './bin/www',
         env: {
-          DEBUG: 'hn-dot-tech:*'
+          DEBUG: 'greetings-application:*'
         }
       }
     },
     concurrent: {
       dev: {
-        tasks: ['nodemon', 'watch'],
+        tasks: ['nodemon', 'watch', 'run:commands'],
         options: {
           logConcurrentOutput: true
         }
@@ -72,6 +80,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-run');
 
   grunt.registerTask('default', ['jshint']);
-  grunt.registerTask('build', ['jshint', 'run']);
+  grunt.registerTask('build', ['jshint']);
   grunt.registerTask('dev', ['build', 'concurrent']);
 };
