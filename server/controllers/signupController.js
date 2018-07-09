@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var url = "mongodb://localhost:27017/greetingsDB";
 var User = require('../models/user');
 
 module.exports.home = home;

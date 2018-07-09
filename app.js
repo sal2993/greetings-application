@@ -6,8 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 // Authentication Configuration
-//var passport = require('passport');
-//var LocalStrategy = require('passport-local').Strategy;
+var passport = require('passport');
 
 
 var indexRouter = require('./routes/index');
@@ -15,7 +14,7 @@ var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/signup');
 var greetingsRouter = require('./routes/greetings');
 
-// require('./config/passport');
+require('./config/passport');
 
 var app = express();
 
@@ -28,6 +27,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Passport
+app.use(passport.initialize());
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
