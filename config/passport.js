@@ -1,11 +1,12 @@
 var passport = require('passport');
-var LocalStrategy = require('passport-local');
+var LocalStrategy = require('passport-local').Strategy;
 var JwtStrategy = require('passport-jwt').Strategy;
 var ExtractJwt = require('passport-jwt').ExtractJwt;
 var User = require('../server/models/user');
-
+console.log("here4");
 passport.use(new LocalStrategy( function(username, password, done) {
-    User.findOne({firstname: username}, function (err, user) {
+    console.log("here3 \n");
+    User.findOne({username: username}, function (err, user) {
         if (err) {
             return done(err);
         }

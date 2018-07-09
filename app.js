@@ -7,6 +7,7 @@ var logger = require('morgan');
 
 // Authentication Configuration
 var passport = require('passport');
+var bodyParser = require('body-parser');
 
 
 var indexRouter = require('./routes/index');
@@ -14,8 +15,8 @@ var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/signup');
 var greetingsRouter = require('./routes/greetings');
 
-require('./config/passport');
 
+require('./config/passport');
 var app = express();
 
 // view engine setup
@@ -25,6 +26,7 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
