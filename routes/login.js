@@ -9,8 +9,18 @@ router.get('/', loginController.home);
 router.post('/', passport.authenticate('local', {session: false},
     function(err, user, info) {
         if (err) {
-            // End Here
+            res.status(err.status || 500);
+            res.render('error; Could not connect w/ DB');
         }
+        if (err && !user) {
+            res.render('login', info);
+        }
+        if(!user) {
+            res.render('login', info);
+        }
+        return res.render('login', {message: 'Successful Login'});
+
+
     }
 ));
 
