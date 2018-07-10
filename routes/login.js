@@ -2,30 +2,34 @@ var express = require('express');
 var router = express.Router();
 var loginController = require('../server/controllers/loginController');
 var passport = require('passport');
+var jwt = require('jsonwebtoken');
 
 /* GET users listing. */
 router.get('/', loginController.home);
 
 router.post('/', function(req, res, next) {
-    console.log("here1 \n");
     passport.authenticate('local', {session: false},
         function(err, user, info) {
-            console.log("here2");
-            if (err) {
-                return res.status(err.status || 500);
-            }
-            if (err && !user) {
+            if (err || !user) {
                 return res.render('login', info);
             }
-            if(!user) {
-                return res.render('login', info);
-            }
-            return res.render('login', {message: 'Successful Login'});
+            var token = jwt.sign({_id: user._id, username: user.username}, 'secret1');
+
+            //return res.json('login', info);
+            // OPTION #1:
+            //   res.set({'Authorization': "Bearer "+token });
+            //   return res.render('index');
+            // OPTION #2:
+            const cookieOptions = {
+                httpOnly: true,
+                expires: 0
+            };
+
+            res.cookie('jwt', token, cookieOptions);
+            return res.render('index');
 
         }
-    );
+    )(req, res, next);
 });
 
-// {successRedirect: '/',
-//     failureRedirect: '/login'}
 module.exports = router;

@@ -7,6 +7,8 @@ var logger = require('morgan');
 
 // Authentication Configuration
 var passport = require('passport');
+require('./config/passport');
+
 var bodyParser = require('body-parser');
 
 
@@ -16,7 +18,6 @@ var signupRouter = require('./routes/signup');
 var greetingsRouter = require('./routes/greetings');
 
 
-require('./config/passport');
 var app = express();
 
 // view engine setup
@@ -31,7 +32,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Passport
-app.use(passport.initialize());
+//app.use(passport.initialize());
 
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
