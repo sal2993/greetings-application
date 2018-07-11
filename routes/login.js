@@ -13,13 +13,15 @@ router.post('/', function(req, res, next) {
             if (err || !user) {
                 return res.render('login', info);
             }
-            var token = jwt.sign({_id: user._id, username: user.username}, 'secret1');
+            var token = jwt.sign({_id: user._id, username: user.username},
+                process.env.SECRETKEY,
+                {
+                    expiresIn: 10, algorithm: "HS256",
+                    audience: "unix.xyz",
+                    issuer: "accounts.unix.xyz"
 
-            //return res.json('login', info);
-            // OPTION #1:
-            //   res.set({'Authorization': "Bearer "+token });
-            //   return res.render('index');
-            // OPTION #2:
+                });
+
             const cookieOptions = {
                 httpOnly: true,
                 expires: 0

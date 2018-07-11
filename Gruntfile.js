@@ -59,8 +59,12 @@ module.exports = function (grunt) {
         nodemon: {
             dev: {
                 script: './bin/www',
-                env: {
-                    DEBUG: 'greetings-application:*'
+                options: {
+                    env: {
+                        DEBUG: 'greetings-application:*',
+                        SECRETKEY: 'testSecret1'
+                    },
+                    cwd: __dirname
                 }
             }
         },
