@@ -1,6 +1,5 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var JwtStrategy = require('passport-jwt').Strategy;
 var User = require('../server/models/user');
 
 // STRATEGY: local
@@ -24,27 +23,3 @@ passport.use(new LocalStrategy( function(username, password, done) {
     });
 }));
 
-var cookieExtractor = function (req){
-    var token = null;
-    if (req && req.cookies) {
-        token = req.cookies['jwt']
-    }
-    return token;
-};
-var secretKeyExtractor = function (){
-    return process.env.SECRETKEY
-}
-
-// STRATEGY: JWTs
-//   Authentication using JWTs coming from cookies
-passport.use(new JwtStrategy(
-    {
-        jwtFromRequest: cookieExtractor,
-        secretOrKey: secretKeyExtractor
-    },
-    function(jwt_payload, done) {
-    if (!jwt_payload) {
-        return done(null)
-    }
-    return done(null, jwt_payload);
-}));

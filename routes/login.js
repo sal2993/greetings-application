@@ -13,10 +13,12 @@ router.post('/', function(req, res, next) {
             if (err || !user) {
                 return res.render('login', info);
             }
+
+            // Give logged in user correct token via Cookies
             var token = jwt.sign({_id: user._id, username: user.username},
                 process.env.SECRETKEY,
                 {
-                    expiresIn: 10, algorithm: "HS256",
+                    expiresIn: 1800, algorithm: "HS256",
                     audience: "unix.xyz",
                     issuer: "accounts.unix.xyz"
 
