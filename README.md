@@ -19,9 +19,18 @@ Chose: JWTs
 Why: for the easy of movement and because I like the technologies they use
 I     
 
-###Mistakes:
+###Mistakes or Unfinished:
 
 Routers/Controllers could be cleaner
+
+NON-DRY AREAS:
+- login router and signup router have identical repeated code.
+
+LOGOUT
+- Because I chose to use JWT I can only log user out by removing their tokens
+from the cache. This can be problamatic though because the only was the backend
+can only verify logout by an absance of token but if password/token is stolen,
+the back end needs a way to void all tokens from user.
 
 
 ###Sources

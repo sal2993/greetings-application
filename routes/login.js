@@ -9,6 +9,7 @@ router.get('/', loginController.home);
 
 router.post('/', function(req, res, next) {
     passport.authenticate('local', {session: false},
+
         function(err, user, info) {
             if (err || !user) {
                 return res.render('login', info);
