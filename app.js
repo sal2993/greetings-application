@@ -2,13 +2,21 @@ var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
+
 var logger = require('morgan');
 
 
+// Authentication Configuration
+var passport = require('passport');
+require('./config/passport');
+
+
+// Routes
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
 var signupRouter = require('./routes/signup');
 var greetingsRouter = require('./routes/greetings');
+var logoutRouter = require('./routes/logout');
 
 var app = express();
 
@@ -23,10 +31,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 app.use('/greetings', greetingsRouter);
+app.use('/logout', logoutRouter);
 
 
 // catch 404 and forward to error handler
