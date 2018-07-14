@@ -94,9 +94,17 @@ Metropolitan State University of Denver
 - https://medium.com/front-end-hacking/learn-using-jwt-with-passport-authentication-9761539c4314
 - https://www.npmjs.com/package/passport-jwt
 
-How to run:
+How to BUILD and RUN:
 
 DEVELOPMENT:
+  TO BUILD:
+    *** MONGODB is required ***
+    git clone git@github.com:sal2993/greetings-application.git
+    cd greetings-application
+    npm install
+    
   TO RUN: 
-    [with build]: $grunt dev
-    [w/o build]: DEBUG=greetings-application:* npm start
+  
+    [with build]: grunt dev
+    
+    [w/o build]: SECRETKEY='secret' DEBUG=greetings-application:* npm start
