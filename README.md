@@ -9,9 +9,13 @@ have the time.
 
 ##Service 1: Greetings Application
 I wrote the web service in Node.js because I have already written to projects in it so I was comfortable with it.
+Also it's fast, asynchronous, and there is a lot of documentation and libraries out there for Node.js
 I chose to use Json Web Tokens to implement the authentication. Because It was my first time using them it took
 me a bit longer than I wanted to finish this. But JWTs are very convenient for passing along tokens from client 
 to service #1 to service #2.
+
+Framework: Express.js for routing, Node.js for the programming language, MONGODB for db, PUG.js for 
+front-end template.
 
 Build Environment: used a npm library called grunt. I configured it to lint all files as they changed and
 to run all tests and the files changed. It also restarts the server automatically after file changes with  a 
