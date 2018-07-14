@@ -4,6 +4,6 @@ block content
 
   p #{message}
   #firstname
-    if firstname
-      h1 greetings #{firstname}
+    if userToken
+      h1 greetings #{userToken.firstname}
 

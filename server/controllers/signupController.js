@@ -6,7 +6,7 @@ module.exports.home = home;
 module.exports.signup_post = signup_post;
 
 function home(req, res, next) {
-    return res.render('signup', {people: docs });
+    return res.render('signup');
 }
 
 function signup_post( req, res, next) {
@@ -38,7 +38,6 @@ function signup_post( req, res, next) {
         // Send User Token via Cookie
         var cookieOptions = {
             httpOnly: true,
-            expires: 1800
         };
 
         res.cookie('jwt', token, cookieOptions);
