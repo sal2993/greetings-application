@@ -2,9 +2,6 @@ extends layout
 
 block content
   h1 Log In Here
-  #message
-    if message
-      p= message
   form(action="/login" method="post")
     p First Name
     input(type="text" name="username")

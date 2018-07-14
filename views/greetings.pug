@@ -2,6 +2,8 @@ extends layout
 
 block content
 
-  h1 greetings
   p #{message}
-  p #{JSON.stringify(userToken)}
+  #firstname
+    if firstname
+      h1 greetings #{firstname}
+

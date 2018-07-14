@@ -6,12 +6,7 @@ module.exports.home = home;
 module.exports.signup_post = signup_post;
 
 function home(req, res, next) {
-    User.find({}, function(err, docs){
-        if (err) {
-            return res.status(405);
-        }
-        return res.render('signup', {people: docs });
-    });
+    return res.render('signup', {people: docs });
 }
 
 function signup_post( req, res, next) {
