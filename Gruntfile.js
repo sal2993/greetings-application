@@ -82,8 +82,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-nodemon');
     grunt.loadNpmTasks('grunt-run');
-
+  
     grunt.registerTask('default', ['jshint']);
     grunt.registerTask('build', ['jshint']);
     grunt.registerTask('dev', ['build', 'concurrent']);
+
 };
