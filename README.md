@@ -1,5 +1,6 @@
 # greetings-application
-####Live Site: https://kittenheads.com
+
+# Live Site: https://kittenheads.com
 Hello. This application was a challenge given by Apple. The application is supposed to be two services.
 One service is a web server and the other is an API service that verifies a token.
 
@@ -7,7 +8,7 @@ One big flaw I had is that I didn't have enough time to implement the second API
 I was going to do it in GO language and I started (https://github.com/sal2993/goAPI) here but yeah I didn't
 have the time.
 
-##Service 1: Greetings Application
+**Service 1: Greetings Application**
 I wrote the web service in Node.js because I have already written to projects in it so I was comfortable with it.
 Also it's fast, asynchronous, and there is a lot of documentation and libraries out there for Node.js
 I chose to use Json Web Tokens to implement the authentication. Because It was my first time using them it took
@@ -36,7 +37,7 @@ SSL: Let's Encrypt to enable SSL
 
 Reverse Proxy:
 
-###Design Decisions:
+**Design Decisions:**
 
 <b> Security </b>
 
@@ -54,7 +55,7 @@ Decision: I stored users passwords by first adding a Salt and then Hashing the p
 to the DB. Users passwords need to be treated this was because if a hacker is able to get into the DB the
 the user's passwords will be safe.
 
-###Mistakes or Unfinished:
+**Mistakes or Unfinished:**
 
 Routers/Controllers could be cleaner
 
@@ -76,7 +77,7 @@ FRONT-END AESTHETICS:
 - The site does not look 'good' but I'm fine with that because I wanted to spend my time on the things 
 that I enjoy which is the back-end. I do have experience with using Bootstrap on my sites but that is about it.
 
-###Thank You
+**Thank You**
 Thanks Apple for this opportunity. I understand that coming out of college I don't have relevant work experience 
 but I can assure you that I truly like what I am doing and that I have the capability to work with the best
 *cough cough* Apple. Also I feel I could bring a lot of value with good ideas if I am able to work on the 
@@ -90,7 +91,7 @@ Tutor @ Tutoring Center
 Metropolitan State University of Denver
 </b>
 
-###Sources
+**Sources**
 - Various StackOverflow pages
 - https://expressjs.com/
 - https://jwt.io/
